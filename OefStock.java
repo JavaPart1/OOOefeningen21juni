@@ -3,6 +3,7 @@ package be.vdab;
 import java.util.Scanner;
 
 public class OefStock {
+    // Main methode mag in een 'StockApp.java' apart van de model-klasse.
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 
@@ -29,6 +30,8 @@ public class OefStock {
         private double currentPrice;
 
         Stock(String newSymbol, String newname){
+            // Binnen de klasse stock is het wel toegelaten om rechtstreeks met de instance vars te werken. Daarvoor dient 'private'.
+            // Zie hoe getters en setters gegenereerd worden, ook met de inst vars rechtstreeks.
             this.setSymbol(newSymbol);
             this.setName(newname);
             //this.symbol = newSymbol;
@@ -68,6 +71,7 @@ public class OefStock {
         }
 
         public double getChangePercent(){
+            // geen naamverwarring mogelijk hier dus this this niet nodig.
             return ((this.currentPrice/this.prevCurrentPrice) - 1) * 100;
         }
 
