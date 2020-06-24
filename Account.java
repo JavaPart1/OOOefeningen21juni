@@ -12,8 +12,10 @@ public class Account {
     private static int count = 0;
 
     Account(){
+        // Meestal gaan we andere dingen gebruiken voor id, en niet van de count laten afhangen. Bekijk een keer wat de atomic integer klasse kan.
         this.id = count++;
         this.balance = 0;
+        // De date klasse is deprecated. Bekijk eens LocalDate.
         this.dateCreated = new Date();
     }
 
@@ -61,9 +63,11 @@ public class Account {
 
     public void deposit(){
         System.out.println("Hoeveel wil je storten ? ");
+        // Naamverwarring is niet mogelijk hier mbt balance, dus this is niet per se nodig, maar ook niet fout.
         this.balance = this.balance + input.nextDouble();
     }
 
+    // Dergelijke printouts mogen in de main klasse uitgeschreven worden. High cohesion! 1 kerntaak voor de klasse account!
     public void printData(){
         System.out.println("Account id : " + this.getId());
         System.out.println("Account balance : " + this.getBalance());
